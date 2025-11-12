@@ -1,0 +1,28 @@
+{
+  "description": "Integrated CPI and PCE data with derived variables",
+  "sources": [
+    "CPIAUCSL (FRED API)",
+    "PCE (FRED CSV)"
+  ],
+  "row_count": 120,
+  "columns": [
+    "date",
+    "cpi",
+    "pce",
+    "cpi_index_2015_01_100",
+    "real_pce",
+    "pce_yoy_pct",
+    "real_pce_yoy_pct",
+    "cpi_yoy_pct"
+  ],
+  "derived_variables": {
+    "cpi_index_2015_01_100": "CPI normalized to 2015-01 = 100",
+    "real_pce": "Inflation-adjusted PCE (2015 dollars)",
+    "pce_yoy_pct": "YoY % change in nominal PCE",
+    "real_pce_yoy_pct": "YoY % change in real PCE",
+    "cpi_yoy_pct": "YoY % change in CPI (inflation rate)"
+  },
+  "file_size_bytes": 13840,
+  "sha256": "38e18933571af1e3eab2f53d7140170b5dd226a3c39728ec2e4db566a9f32b7b",
+  "retrieved_at_utc": "2025-11-11T22:55:28.413171+00:00"
+}
