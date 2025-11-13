@@ -3,7 +3,6 @@
 **Project**: The Impact of Inflation on U.S. Consumer Spending (2015–2024)  
 **Team Members**: Haoyu, Bingqing  
 **Date**: November 11, 2025  
-**GitHub Repository**: [Your repository URL]
 
 ---
 
