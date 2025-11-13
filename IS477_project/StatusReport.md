@@ -34,6 +34,9 @@ We successfully acquired both required datasets from FRED using two distinct acc
 - `data/raw/PCE_metadata.json` - PCE documentation
 - `acquire_data.ipynb` - Complete acquisition notebook
 
+**Data Licensing and Terms of Use**
+All data used in this project were obtained from the Federal Reserve Bank of St. Louis FRED database. According to the FRED Terms of Use, the data are publicly available for educational and research purposes without restriction(personal, non-commercial use), provided appropriate attribution is given. Accordingly, we will cite FRED as the data source in all documentation and visualizations. No proprietary or personally identifiable information is included in these datasets.
+
 ### Storage and Organization - Completed
 
 **Timeline**: Planned October 25th, Completed
@@ -113,10 +116,10 @@ The exploratory data analysis (EDA) phase will focus on uncovering key trends an
 
 **Analyses may include**:
 
-Trend visualization: Line charts of and real PCE to identify inflationary periods and spending responses.
-Growth rate analysis: Examination of year-over-year changes to capture short-term and long-term fluctuations.
-Correlation analysis: Assessment of the linear relationship between CPI growth and both nominal and real PCE growth.
-Descriptive statistics: Summary measures (mean, variance, skewness, kurtosis) for key indicators to characterize their distributions and variability over time.
+- Trend visualization: Line charts of and real PCE to identify inflationary periods and spending responses.
+- Growth rate analysis: Examination of year-over-year changes to capture short-term and long-term fluctuations.
+- Correlation analysis: Assessment of the linear relationship between CPI growth and both nominal and real PCE growth.
+- Descriptive statistics: Summary measures (mean, variance, skewness, kurtosis) for key indicators to characterize their distributions and variability over time.
 
 ### Statistical Modeling
 
@@ -141,10 +144,10 @@ The final stage of the project will focus on compiling and documenting all compo
 
 **Key deliverables will include**:
 
-Comprehensive project report: A detailed summary of the research motivation, datasets, data quality assessment, analysis results, and conclusions following the project submission guidelines.
-Data dictionary and metadata: Documentation of all variables, their definitions, data sources, and transformation procedures.
-Workflow documentation: Step-by-step instructions describing how the end-to-end pipeline (from data acquisition to visualization) can be reproduced.
-Final outputs: All processed datasets, scripts, and visualization results stored in the project repository and linked to the shared folder for accessibility.
+- Comprehensive project report: A detailed summary of the research motivation, datasets, data quality assessment, analysis results, and conclusions following the project submission guidelines.
+- Data dictionary and metadata: Documentation of all variables, their definitions, data sources, and transformation procedures.
+- Workflow documentation: Step-by-step instructions describing how the end-to-end pipeline (from data acquisition to visualization) can be reproduced.
+- Final outputs: All processed datasets, scripts, and visualization results stored in the project repository and linked to the shared folder for accessibility.
 
 ---
 
