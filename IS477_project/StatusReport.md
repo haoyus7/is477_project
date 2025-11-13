@@ -35,6 +35,7 @@ We successfully acquired both required datasets from FRED using two distinct acc
 - `acquire_data.ipynb` - Complete acquisition notebook
 
 **Data Licensing and Terms of Use**
+
 All data used in this project were obtained from the Federal Reserve Bank of St. Louis FRED database. According to the FRED Terms of Use, the data are publicly available for educational and research purposes without restriction(personal, non-commercial use), provided appropriate attribution is given. Accordingly, we will cite FRED as the data source in all documentation and visualizations. No proprietary or personally identifiable information is included in these datasets.
 
 ### Storage and Organization - Completed
