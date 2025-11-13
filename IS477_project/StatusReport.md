@@ -109,21 +109,42 @@ This task will involve creating an automated script to execute the complete data
 **Timeline**: Planned November 14th  
 **Responsible**: Bingqing
 
-Bingqing will create time series visualizations, correlation analysis, and descriptive statistics to identify key patterns in the data. This analysis will inform our statistical modeling approach.
+The exploratory data analysis (EDA) phase will focus on uncovering key trends and relationships between inflation and consumer spending over the 2015–2024 period. We will begin by generating some time series visualizations to examine temporal dynamics in both nominal and real Personal Consumption Expenditures (PCE) alongside the Consumer Price Index (CPI).
+
+**Analyses may include**:
+
+Trend visualization: Line charts of and real PCE to identify inflationary periods and spending responses.
+Growth rate analysis: Examination of year-over-year changes to capture short-term and long-term fluctuations.
+Correlation analysis: Assessment of the linear relationship between CPI growth and both nominal and real PCE growth.
+Descriptive statistics: Summary measures (mean, variance, skewness, kurtosis) for key indicators to characterize their distributions and variability over time.
 
 ### Statistical Modeling
 
 **Timeline**: Planned November 17th  
 **Responsible**: Bingqing
 
-Statistical modeling will examine the relationship between inflation and real consumer spending using regression analysis. We will test for immediate effects and time-lagged relationships.
+Following the exploratory data analysis, the statistical modeling part will quantify the relationship between inflation and real consumer spending. We plan to employ multiple linear regression models, testing both contemporaneous and lagged effects of CPI on real PCE.
+
+**Modeling objectives may include**:
+
+- Estimating the sensitivity of real PCE growth to inflation (CPI year-over-year change)
+- Testing for delayed effects by including lagged inflation terms (such as 3-month, 6-month, and 12-month lags)
+- Evaluating model fit and robustness using diagnostic metrics (adjusted R², AIC, residual analysis)
+- Assessing potential structural breaks, particularly around the COVID-19 pandemic period (2019–2022)
 
 ### Documentation and Final Report
 
 **Timeline**: Planned November 20-28th  
 **Responsible**: Both
 
-Final documentation will include a comprehensive data dictionary, workflow documentation, and complete metadata following standard schemas. The final report will compile all project materials for submission.
+The final stage of the project will focus on compiling and documenting all components of the data curation and analysis workflow. This phase will ensure that our project is fully transparent, reproducible, and well-organized for final submission.
+
+**Key deliverables will include**:
+
+Comprehensive project report: A detailed summary of the research motivation, datasets, data quality assessment, analysis results, and conclusions following the project submission guidelines.
+Data dictionary and metadata: Documentation of all variables, their definitions, data sources, and transformation procedures.
+Workflow documentation: Step-by-step instructions describing how the end-to-end pipeline (from data acquisition to visualization) can be reproduced.
+Final outputs: All processed datasets, scripts, and visualization results stored in the project repository and linked to the shared folder for accessibility.
 
 ---
 
@@ -172,13 +193,19 @@ All completed work has been committed to our GitHub repository including the dat
 
 ### Bingqing's Contributions
 
-I contributed to project planning and reviewed the data acquisition approach developed by Haoyu. I participated in team discussions about our research methodology and analytical strategy. I am currently preparing for the exploratory data analysis phase by identifying appropriate visualization techniques and statistical methods for our time series analysis.
+I contributed to the overall project planning and actively participated in defining the research objectives and analytical framework. I reviewed the data acquisition and integration process developed by Haoyu to ensure consistency, completeness, and alignment with our research goals.
 
-In the upcoming weeks, I will lead the exploratory analysis and statistical modeling phases to address our research questions about inflation's impact on consumer spending patterns.
+Currently, I am preparing for the exploratory data analysis (EDA) phase by identifying appropriate visualization techniques and statistical approaches for analyzing monthly time series data. This includes designing plots to highlight temporal trends, correlations, and potential lag effects between inflation and consumer spending.
+
+In the upcoming weeks, I will lead the EDA and statistical modeling phases. My responsibilities will include conducting correlation and regression analyses to quantify the relationship between inflation (CPI growth) and real personal consumption expenditures (PCE), evaluating model performance, and interpreting the results within an economic context. I will also contribute to preparing the final report, integrating analytical findings with supporting visualizations and interpretations.
 
 ---
 
 ## Next Steps
 
-Following this status report submission, we will complete the workflow automation task to ensure full reproducibility of our data pipeline. Bingqing will then begin exploratory data analysis, creating visualizations and identifying patterns to inform our modeling approach. Statistical modeling will follow to formally test our research hypotheses. We will maintain our current timeline to complete all work by the planned Schedule.
+Following the submission of this interim status report, our next priority will be completing the workflow automation task to ensure full reproducibility and transparency of the data pipeline. This step will include developing a Snakemake workflow that automates data acquisition, integration, enrichment, and quality assessment.
+
+After workflow automation is finalized, Bingqing will lead the exploratory data analysis phase. This will involve generating time series visualizations, conducting correlation analysis, and summarizing key descriptive statistics to identify major patterns and trends. Insights from this analysis will guide the specification of our regression models.
+
+Subsequently, we will proceed with the statistical modeling phase to formally evaluate the relationship between inflation and real consumer spending, including potential lagged effects. We will continue to adhere to our current project timeline and aim to complete all remaining tasks by the planned schedule.
 
