@@ -17,7 +17,7 @@ We have completed the data acquisition, integration, enrichment, and quality ass
 
 ### Data Acquisition - Completed
 
-**Timeline**: Planned October 20th, Completed [your date]  
+**Timeline**: Planned October 20th, Completed 
 **Responsible**: Haoyu
 
 We successfully acquired both required datasets from FRED using two distinct access methods. The CPI data was retrieved via the FRED API using programmatic access with authentication. The PCE data was obtained through direct CSV download from the FRED website. Both datasets contain 120 monthly observations from January 2015 through December 2024.
@@ -37,7 +37,7 @@ We successfully acquired both required datasets from FRED using two distinct acc
 
 ### Storage and Organization - Completed
 
-**Timeline**: Planned October 25th, Completed [your date]  
+**Timeline**: Planned October 25th, Completed
 **Responsible**: Haoyu
 
 We established an organized project structure with clear separation between raw and processed data. The directory structure includes dedicated folders for source data, processed outputs, and analysis scripts. File naming conventions follow consistent patterns that clearly indicate data content and processing stage.
@@ -46,11 +46,10 @@ We established an organized project structure with clear separation between raw 
 - `data/raw/` - Original downloaded datasets
 - `data/processed/` - Cleaned and integrated data
 - `acquire_data.ipynb` - Data acquisition and processing notebook
-- Metadata files accompany all datasets
 
 ### Data Integration - Completed
 
-**Timeline**: Planned October 29th, Completed [your date]  
+**Timeline**: Planned October 29th, Completed
 **Responsible**: Haoyu
 
 The CPI and PCE datasets were successfully merged into a single unified time series aligned by date. We used an inner join to ensure only complete observations are included, maintaining data quality throughout the integration process. The merge was validated to confirm no duplicate dates exist and that all 120 monthly observations are properly aligned.
@@ -64,7 +63,7 @@ The CPI and PCE datasets were successfully merged into a single unified time ser
 
 ### Extraction and Enrichment - Completed
 
-**Timeline**: Planned October 27th, Completed [your date]  
+**Timeline**: Planned October 27th, Completed
 **Responsible**: Haoyu
 
 We created five analytical variables to support our research questions about inflation's impact on consumer spending. The CPI was normalized to create an index with January 2015 as the base period. This index was then used to calculate real Personal Consumption Expenditures in constant 2015 dollars. Year-over-year growth rates were computed for all key variables using 12-month lags to enable analysis of annual trends.
@@ -80,7 +79,7 @@ All derived variables are documented with calculation methods in the metadata fi
 
 ### Data Quality Assessment - Completed
 
-**Timeline**: Planned November 1st, Completed [your date]  
+**Timeline**: Planned November 1st, Completed
 **Responsible**: Haoyu
 
 We conducted comprehensive quality checks on the integrated dataset to identify any issues before proceeding with analysis. The assessment examined missing values, duplicate dates, temporal completeness, and value range validation.
@@ -101,14 +100,14 @@ The quality assessment results are documented in the processed data metadata fil
 
 ### Workflow Automation
 
-**Timeline**: Planned November 10th  
+**Timeline**: Planned November 12th
 **Responsible**: Haoyu
 
 This task will involve creating an automated script to execute the complete data pipeline from acquisition through quality assessment. We plan to implement a Snakemake workflow for robust automation.
 
 ### Exploratory Data Analysis
 
-**Timeline**: Planned November 12th  
+**Timeline**: Planned November 14th  
 **Responsible**: Bingqing
 
 Bingqing will create time series visualizations, correlation analysis, and descriptive statistics to identify key patterns in the data. This analysis will inform our statistical modeling approach.
@@ -138,8 +137,8 @@ Final documentation will include a comprehensive data dictionary, workflow docum
 | Extraction & Enrichment | Oct 27 | Complete | Haoyu |
 | Data Integration | Oct 29 | Complete | Haoyu |
 | Data Quality | Nov 1 | Complete | Haoyu |
-| Workflow Automation | Nov 10 | Not Started | Haoyu |
-| Exploratory Analysis | Nov 12 | Not Started | Bingqing |
+| Workflow Automation | Nov 12 | Not Started | Haoyu |
+| Exploratory Analysis | Nov 14 | Not Started | Bingqing |
 | Statistical Modeling | Nov 17 | Not Started | Bingqing |
 | Documentation | Nov 20 | Not Started | Both |
 | Final Report | Nov 28 | Not Started | Both |
@@ -174,20 +173,13 @@ All completed work has been committed to our GitHub repository including the dat
 
 ### Bingqing's Contributions
 
-[Bingqing will write and commit this section]
-
 I contributed to project planning and reviewed the data acquisition approach developed by Haoyu. I participated in team discussions about our research methodology and analytical strategy. I am currently preparing for the exploratory data analysis phase by identifying appropriate visualization techniques and statistical methods for our time series analysis.
 
-In the upcoming weeks, I will lead the exploratory analysis and statistical modeling phases to address our research questions about inflation's impact on consumer spending patterns. Time invested in project activities for this milestone: [X] hours.
+In the upcoming weeks, I will lead the exploratory analysis and statistical modeling phases to address our research questions about inflation's impact on consumer spending patterns.
 
 ---
 
 ## Next Steps
 
-Following this status report submission, we will complete the workflow automation task to ensure full reproducibility of our data pipeline. Bingqing will then begin exploratory data analysis, creating visualizations and identifying patterns to inform our modeling approach. Statistical modeling will follow to formally test our research hypotheses. We will maintain our current timeline to complete all work by the November 28th deadline.
+Following this status report submission, we will complete the workflow automation task to ensure full reproducibility of our data pipeline. Bingqing will then begin exploratory data analysis, creating visualizations and identifying patterns to inform our modeling approach. Statistical modeling will follow to formally test our research hypotheses. We will maintain our current timeline to complete all work by the planned Schedule.
 
----
-
-**Word Count**: Approximately 1,100 words  
-**Repository Status**: All completed work committed to GitHub  
-**Next Milestone**: Final Project Submission (November 28, 2025)
