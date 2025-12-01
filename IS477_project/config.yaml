@@ -1,0 +1,34 @@
+# Configuration for Inflation & Consumer Spending Data Pipeline
+# Project: The Impact of Inflation on U.S. Consumer Spending (2015-2024)
+
+# Date range for data acquisition
+start_date: "2015-01-01"
+end_date: "2024-12-31"
+
+# FRED API settings
+fred_api_key_file: "fred_api_key.txt"
+
+# Data series
+series:
+  cpi:
+    series_id: "CPIAUCSL"
+    description: "Consumer Price Index for All Urban Consumers"
+    source: "FRED API"
+  pce:
+    series_id: "PCE"
+    description: "Personal Consumption Expenditures"
+    source: "FRED CSV Download"
+
+# Directory paths
+directories:
+  raw: "data/raw"
+  processed: "data/processed"
+
+# Output files
+outputs:
+  cpi_raw: "data/raw/CPIAUCSL.csv"
+  pce_raw: "data/raw/PCE.csv"
+  merged: "data/processed/macro_monthly.csv"
+
+# Base period for CPI normalization
+cpi_base_date: "2015-01-01"

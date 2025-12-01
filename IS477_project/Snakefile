@@ -1,0 +1,112 @@
+"""
+Snakemake Workflow: Inflation & Consumer Spending Data Pipeline
+================================================================
+Project: The Impact of Inflation on U.S. Consumer Spending (2015-2024)
+Team: Haoyu, Bingqing
+
+This workflow automates the complete data pipeline:
+1. Acquire CPI data from FRED API
+2. Acquire PCE data from FRED CSV
+3. Integrate and enrich datasets
+4. Run quality assessment
+
+Usage:
+    snakemake --cores 1           # Run complete pipeline
+    snakemake --cores 1 -n        # Dry run (preview)
+    snakemake --cores 1 --dag | dot -Tpng > dag.png  # Generate DAG
+"""
+
+configfile: "config.yaml"
+
+# Define final target outputs
+rule all:
+    input:
+        "data/processed/macro_monthly.csv",
+        "data/processed/quality_report.json"
+
+
+# Rule 1: Acquire CPI data from FRED API
+rule acquire_cpi:
+    output:
+        csv="data/raw/CPIAUCSL.csv",
+        metadata="data/raw/CPIAUCSL_metadata.json"
+    params:
+        config="config.yaml"
+    log:
+        "logs/acquire_cpi.log"
+    shell:
+        """
+        python scripts/acquire_cpi.py \
+            --config {params.config} \
+            --output {output.csv} \
+            2>&1 | tee {log}
+        """
+
+
+# Rule 2: Acquire PCE data from FRED CSV download
+rule acquire_pce:
+    output:
+        csv="data/raw/PCE.csv",
+        metadata="data/raw/PCE_metadata.json"
+    params:
+        config="config.yaml"
+    log:
+        "logs/acquire_pce.log"
+    shell:
+        """
+        python scripts/acquire_pce.py \
+            --config {params.config} \
+            --output {output.csv} \
+            2>&1 | tee {log}
+        """
+
+
+# Rule 3: Integrate and enrich data
+rule integrate:
+    input:
+        cpi="data/raw/CPIAUCSL.csv",
+        pce="data/raw/PCE.csv"
+    output:
+        csv="data/processed/macro_monthly.csv",
+        metadata="data/processed/macro_monthly_metadata.json"
+    params:
+        config="config.yaml"
+    log:
+        "logs/integrate.log"
+    shell:
+        """
+        python scripts/integrate.py \
+            --config {params.config} \
+            --cpi {input.cpi} \
+            --pce {input.pce} \
+            --output {output.csv} \
+            2>&1 | tee {log}
+        """
+
+
+# Rule 4: Quality assessment
+rule quality_check:
+    input:
+        "data/processed/macro_monthly.csv"
+    output:
+        "data/processed/quality_report.json"
+    log:
+        "logs/quality_check.log"
+    shell:
+        """
+        python scripts/quality_check.py \
+            --input {input} \
+            --output {output} \
+            2>&1 | tee {log}
+        """
+
+
+# Utility rule: Clean all generated files
+rule clean:
+    shell:
+        """
+        rm -rf data/raw/*.csv data/raw/*.json
+        rm -rf data/processed/*.csv data/processed/*.json
+        rm -rf logs/*.log
+        echo "Cleaned all generated files"
+        """
