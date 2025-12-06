@@ -1,8 +1,8 @@
 # The Impact of Inflation on U.S. Consumer Spending (2015–2024)
 
 ## Contributors
-- **Haoyu** 
-- **Bingqing**
+- **Bingqing Li** 
+- **Haoyu Shi**
 
 ## Summary
 
