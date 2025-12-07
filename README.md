@@ -219,17 +219,41 @@ These controls would better isolate the specific effect of inflation on spending
 **International Comparison:** Comparing U.S. patterns with other developed economies that experienced different inflation trajectories and policy responses could help disentangle U.S.-specific factors from generalizable relationships. Countries with different social safety nets, wage indexation policies, or central bank responses provide natural experiments for comparative analysis.
 
 ### Lessons Learned
+The project helped us to improve our data acquisition skills, workflow design, and teamwork. Our experience with the FRED API demonstrated that programmatic data collection needs to be defensive: we needed to deal with timeouts, apply a system of retries, and ensure redundancy by downloading CPI through the API and the PCE through CSV. We also learned to authenticate mergers among datasets, to watch for duplicate or missing dates, to give an account of all transformations, in the manner in which we standardized CPI and calculated real PCE and development rates.
 
+Creating the Snakemake pipeline changed our thinking more towards "executing scripts" rather than thinking about the project as a series of steps with dependencies and are being modeled as having both clear inputs and outputs. Intermediate files (quality reports, EDA summaries, etc.) were explicitly defined, and it was easier to debug and verify. Another thing that we learned was the extent to which reproducibility relies on the documentation of the computing environment, rather than the code itself.
 
+Last but not least, we got to know that simple regression models should be interpreted with care. Diagnostics like AIC, BIC, and Durbin-Watson assisted us in observing the limitations of the model, the residual autocorrelation. This positive correlation between inflation and real PCE is as well probably due to the same long-run trends and not causal effect and we should remember that correlation on time series data can be false without more advanced models and context of domain.
 
 
 ## Reproducing
 
+The structure of our workflow is, such that, one can re-do the analysis based on the original FRED data, given a few commands. Python 3.9 or later, Git, and a FRED API key, stored as fredapikey.txt in the project root will be required. Moreover, Snakemake will automatically run all the pipeline steps downloading of CPI and PCE, integrating and cleaning of the data, running quality checks, creating EDA outputs, and creating regression models. All the main artifacts will be written to the data/processed/ and results/ folders, and logs of each step will be detailed in folders logs/.
 
-
+To ensure that the run was successful, you can ensure that you have files like macromonthly.csv, qualityreport.json, and the regression summaries in results/ have been generated. In case of a failure, refer to the relevant log file and make sure that you have the API key and Python environment properly set. To preview the steps that would be run, you can also run snakemake -n or to run a specific output you can specific the path of the output file and pass it to Snakemake. 
 
 
 ## References
 U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: All Items in U.S. City Average [CPIAUCSL], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCSL, December 5, 2025.
 
 U.S. Bureau of Economic Analysis, Personal Consumption Expenditures [PCE], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/PCE, December 5, 2025.
+
+### Data Sources
+
+Federal Reserve Bank of St. Louis. (2024). *Consumer Price Index for All Urban Consumers: All Items in U.S. City Average* [CPIAUCSL]. FRED, Federal Reserve Bank of St. Louis. Retrieved from https://fred.stlouisfed.org/series/CPIAUCSL
+
+Federal Reserve Bank of St. Louis. (2024). *Personal Consumption Expenditures* [PCE]. FRED, Federal Reserve Bank of St. Louis. Retrieved from https://fred.stlouisfed.org/series/PCE
+
+### Software Used
+
+| Software | Version | License | Citation |
+|----------|---------|---------|----------|
+| Python | 3.9+ | PSF License | Van Rossum, G., & Drake, F. L. (2009). *Python 3 Reference Manual*. CreateSpace. |
+| pandas | ≥2.0.0 | BSD 3-Clause | McKinney, W. (2010). Data Structures for Statistical Computing in Python. *Proceedings of the 9th Python in Science Conference*, 51-56. |
+| NumPy | ≥1.24.0 | BSD 3-Clause | Harris, C.R., et al. (2020). Array programming with NumPy. *Nature*, 585, 357-362. |
+| Matplotlib | ≥3.7.0 | PSF License | Hunter, J. D. (2007). Matplotlib: A 2D Graphics Environment. *Computing in Science & Engineering*, 9(3), 90-95. |
+| Seaborn | ≥0.12.0 | BSD 3-Clause | Waskom, M. L. (2021). seaborn: statistical data visualization. *Journal of Open Source Software*, 6(60), 3021. |
+| statsmodels | ≥0.14.0 | BSD 3-Clause | Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and Statistical Modeling with Python. *Proceedings of the 9th Python in Science Conference*, 57-61. |
+| Snakemake | ≥7.0.0 | MIT License | Mölder, F., et al. (2021). Sustainable data analysis with Snakemake. *F1000Research*, 10, 33. |
+| requests | ≥2.28.0 | Apache 2.0 | Reitz, K. (2011). Requests: HTTP for Humans. https://docs.python-requests.org |
+| PyYAML | ≥6.0 | MIT License | Simonov, K. (2006). PyYAML. https://pyyaml.org |
