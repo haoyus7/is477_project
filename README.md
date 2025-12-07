@@ -241,12 +241,6 @@ U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: A
 
 U.S. Bureau of Economic Analysis, Personal Consumption Expenditures [PCE], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/PCE, December 5, 2025.
 
-### Data Sources
-
-Federal Reserve Bank of St. Louis. (2024). *Consumer Price Index for All Urban Consumers: All Items in U.S. City Average* [CPIAUCSL]. FRED, Federal Reserve Bank of St. Louis. Retrieved from https://fred.stlouisfed.org/series/CPIAUCSL
-
-Federal Reserve Bank of St. Louis. (2024). *Personal Consumption Expenditures* [PCE]. FRED, Federal Reserve Bank of St. Louis. Retrieved from https://fred.stlouisfed.org/series/PCE
-
 ### Software Used
 
 | Software | Version | License | Citation |
