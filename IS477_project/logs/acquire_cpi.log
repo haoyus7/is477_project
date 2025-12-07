@@ -1,3 +1,0 @@
-Fetching CPI data from FRED API...
-CPI data saved: data/raw/CPIAUCSL.csv (120 rows)
-Metadata saved: data/raw/CPIAUCSL_metadata.json

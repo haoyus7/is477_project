@@ -1,4 +1,0 @@
-Trying: https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCE
-Downloaded from: https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCE
-PCE data saved: data/raw/PCE.csv (120 rows)
-Metadata saved: data/raw/PCE_metadata.json
