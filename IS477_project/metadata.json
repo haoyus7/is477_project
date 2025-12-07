@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "The Impact of Inflation on U.S. Consumer Spending (2015-2024)",
+  "description": "This dataset contains integrated monthly Consumer Price Index (CPI) and Personal Consumption Expenditures (PCE) data from 2015 to 2024, along with derived variables including inflation-adjusted real PCE and year-over-year growth rates. The dataset supports analysis of how inflation has influenced consumer spending behavior in the United States.",
+  "url": "https://github.com/haoyus7/is477_project",
+  "identifier": "https://github.com/haoyus7/is477_project",
+  "version": "1.0.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Haoyu Shi",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of Illinois at Urbana-Champaign"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Bingqing",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of Illinois at Urbana-Champaign"
+      }
+    }
+  ],
+  "dateCreated": "2024-10-01",
+  "dateModified": "2024-12-06",
+  "datePublished": "2024-12-06",
+  "keywords": [
+    "inflation",
+    "consumer spending",
+    "Consumer Price Index",
+    "CPI",
+    "Personal Consumption Expenditures",
+    "PCE",
+    "macroeconomics",
+    "United States",
+    "time series",
+    "economic analysis"
+  ],
+  "temporalCoverage": "2015-01-01/2024-12-31",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "United States"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "name": "macro_monthly.csv",
+      "description": "Integrated CPI and PCE data with derived variables"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "name": "CPIAUCSL.csv",
+      "description": "Consumer Price Index raw data"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "name": "PCE.csv",
+      "description": "Personal Consumption Expenditures raw data"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "cpi",
+      "description": "Consumer Price Index for All Urban Consumers",
+      "unitText": "Index (1982-84=100)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pce",
+      "description": "Personal Consumption Expenditures (nominal)",
+      "unitText": "Billions of Dollars"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "real_pce",
+      "description": "Inflation-adjusted PCE in constant 2015 dollars",
+      "unitText": "Billions of 2015 Dollars"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "cpi_yoy_pct",
+      "description": "Year-over-year percentage change in CPI (inflation rate)",
+      "unitText": "Percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "real_pce_yoy_pct",
+      "description": "Year-over-year percentage change in real PCE",
+      "unitText": "Percent"
+    }
+  ],
+  "isBasedOn": [
+    {
+      "@type": "Dataset",
+      "name": "Consumer Price Index for All Urban Consumers: All Items in U.S. City Average (CPIAUCSL)",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "publisher": {
+        "@type": "Organization",
+        "name": "U.S. Bureau of Labor Statistics"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "name": "Personal Consumption Expenditures (PCE)",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "U.S. Bureau of Economic Analysis"
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "University of Illinois at Urbana-Champaign, School of Information Sciences"
+  },
+  "funding": {
+    "@type": "Grant",
+    "name": "IS477 Data Management, Curation, and Reproducibility"
+  },
+  "citation": "Shi, H., & Bingqing. (2024). The Impact of Inflation on U.S. Consumer Spending (2015-2024) [Dataset]. GitHub. https://github.com/haoyus7/is477_project"
+}
