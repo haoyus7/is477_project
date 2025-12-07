@@ -1,0 +1,201 @@
+"""
+Snakemake Workflow: Inflation & Consumer Spending Data Pipeline
+================================================================
+Project: The Impact of Inflation on U.S. Consumer Spending (2015-2024)
+Team: Haoyu, Bingqing
+
+This workflow automates the COMPLETE data pipeline:
+1. Acquire CPI data from FRED API
+2. Acquire PCE data from FRED CSV
+3. Integrate and enrich datasets
+4. Run quality assessment
+5. Perform Exploratory Data Analysis (EDA)
+6. Run statistical modeling (regression analysis)
+
+Usage:
+    snakemake --cores 1           # Run complete pipeline
+    snakemake --cores 1 -n        # Dry run (preview)
+    snakemake --cores 1 --dag | dot -Tpng > dag.png  # Generate DAG
+    snakemake --cores 1 clean     # Clean all generated files
+"""
+
+configfile: "config.yaml"
+
+# Define final target outputs - ALL outputs from the complete pipeline
+rule all:
+    input:
+        # Data pipeline outputs
+        "data/processed/macro_monthly.csv",
+        "data/processed/quality_report.json",
+        # EDA outputs
+        "results/eda_summary.json",
+        "results/figures/inflation_over_time.png",
+        "results/figures/pce_trends.png",
+        "results/figures/growth_rates.png",
+        "results/figures/correlation_matrix.png",
+        "results/descriptive_stats.csv",
+        "results/correlation_matrix.csv",
+        # Modeling outputs
+        "results/model_results.json",
+        "results/baseline_model_summary.txt",
+        "results/lagged_model_summary.txt"
+
+
+# =============================================================================
+# DATA ACQUISITION RULES
+# =============================================================================
+
+# Rule 1: Acquire CPI data from FRED API
+rule acquire_cpi:
+    output:
+        csv="data/raw/CPIAUCSL.csv",
+        metadata="data/raw/CPIAUCSL_metadata.json"
+    params:
+        config="config.yaml"
+    log:
+        "logs/acquire_cpi.log"
+    shell:
+        """
+        python scripts/acquire_cpi.py \
+            --config {params.config} \
+            --output {output.csv} \
+            2>&1 | tee {log}
+        """
+
+
+# Rule 2: Acquire PCE data from FRED CSV download
+rule acquire_pce:
+    output:
+        csv="data/raw/PCE.csv",
+        metadata="data/raw/PCE_metadata.json"
+    params:
+        config="config.yaml"
+    log:
+        "logs/acquire_pce.log"
+    shell:
+        """
+        python scripts/acquire_pce.py \
+            --config {params.config} \
+            --output {output.csv} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# DATA PROCESSING RULES
+# =============================================================================
+
+# Rule 3: Integrate and enrich data
+rule integrate:
+    input:
+        cpi="data/raw/CPIAUCSL.csv",
+        pce="data/raw/PCE.csv"
+    output:
+        csv="data/processed/macro_monthly.csv",
+        metadata="data/processed/macro_monthly_metadata.json"
+    params:
+        config="config.yaml"
+    log:
+        "logs/integrate.log"
+    shell:
+        """
+        python scripts/integrate.py \
+            --config {params.config} \
+            --cpi {input.cpi} \
+            --pce {input.pce} \
+            --output {output.csv} \
+            2>&1 | tee {log}
+        """
+
+
+# Rule 4: Quality assessment
+rule quality_check:
+    input:
+        "data/processed/macro_monthly.csv"
+    output:
+        "data/processed/quality_report.json"
+    log:
+        "logs/quality_check.log"
+    shell:
+        """
+        python scripts/quality_check.py \
+            --input {input} \
+            --output {output} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# ANALYSIS RULES
+# =============================================================================
+
+# Rule 5: Exploratory Data Analysis
+rule eda:
+    input:
+        data="data/processed/macro_monthly.csv",
+        quality="data/processed/quality_report.json"
+    output:
+        summary="results/eda_summary.json",
+        fig1="results/figures/inflation_over_time.png",
+        fig2="results/figures/pce_trends.png",
+        fig3="results/figures/growth_rates.png",
+        fig4="results/figures/correlation_matrix.png",
+        stats="results/descriptive_stats.csv",
+        corr="results/correlation_matrix.csv"
+    log:
+        "logs/eda.log"
+    shell:
+        """
+        python scripts/eda.py \
+            --input {input.data} \
+            --output-dir results \
+            2>&1 | tee {log}
+        """
+
+
+# Rule 6: Statistical Modeling
+rule modeling:
+    input:
+        data="data/processed/macro_monthly.csv",
+        eda="results/eda_summary.json"
+    output:
+        results="results/model_results.json",
+        baseline="results/baseline_model_summary.txt",
+        lagged="results/lagged_model_summary.txt"
+    log:
+        "logs/modeling.log"
+    shell:
+        """
+        python scripts/modeling.py \
+            --input {input.data} \
+            --output-dir results \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# UTILITY RULES
+# =============================================================================
+
+# Utility rule: Clean all generated files
+rule clean:
+    shell:
+        """
+        rm -rf data/raw/*.csv data/raw/*.json
+        rm -rf data/processed/*.csv data/processed/*.json
+        rm -rf results/*.json results/*.csv results/*.txt
+        rm -rf results/figures/*.png
+        rm -rf logs/*.log
+        echo "Cleaned all generated files"
+        """
+
+
+# Utility rule: Clean only results (keep data)
+rule clean_results:
+    shell:
+        """
+        rm -rf results/*.json results/*.csv results/*.txt
+        rm -rf results/figures/*.png
+        rm -rf logs/eda.log logs/modeling.log
+        echo "Cleaned analysis results"
+        """
