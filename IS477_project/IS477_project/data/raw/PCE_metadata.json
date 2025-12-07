@@ -1,0 +1,9 @@
+{
+  "series_id": "PCE",
+  "source": "FRED CSV Download",
+  "description": "Personal Consumption Expenditures",
+  "row_count": 120,
+  "file_size_bytes": 2289,
+  "sha256": "5427f61d5c34650705779261a1d3bd06e2650edd46a89dfb1f41c966f167170b",
+  "retrieved_at_utc": "2025-12-07T02:03:09.881488+00:00"
+}

@@ -1,0 +1,47 @@
+Loading data from: data/processed/macro_monthly.csv
+Loaded 120 observations
+
+============================================================
+EXPLORATORY DATA ANALYSIS
+============================================================
+
+Generating visualizations...
+Saved: results/figures/inflation_over_time.png
+Saved: results/figures/pce_trends.png
+Saved: results/figures/growth_rates.png
+Saved: results/figures/correlation_matrix.png
+
+Computing statistics...
+Saved: results/descriptive_stats.csv
+
+============================================================
+DESCRIPTIVE STATISTICS
+============================================================
+          cpi_yoy_pct  pce_yoy_pct  real_pce_yoy_pct
+count        108.0000     108.0000          108.0000
+mean           3.1869       5.6070            2.3224
+std            2.2005       5.0305            3.7847
+min            0.1982     -14.2813          -14.5488
+25%            1.6856       3.6900            1.4579
+50%            2.4561       5.0285            2.1391
+75%            3.7010       6.3974            2.6876
+max            8.9993      29.9473           24.7845
+skew           1.2348       0.8037            1.4506
+kurtosis       0.4974       6.9382           15.4265
+Saved: results/correlation_matrix.csv
+
+============================================================
+CORRELATION MATRIX
+============================================================
+                  cpi_yoy_pct  pce_yoy_pct  real_pce_yoy_pct
+cpi_yoy_pct            1.0000       0.6682            0.2871
+pce_yoy_pct            0.6682       1.0000            0.9044
+real_pce_yoy_pct       0.2871       0.9044            1.0000
+
+Key Finding: Correlation between inflation and real PCE growth: 0.2871
+
+Saved: results/eda_summary.json
+
+============================================================
+EDA COMPLETE
+============================================================
