@@ -111,25 +111,25 @@ Before conducting regression analysis, we examined the temporal patterns and rel
 
 **Figure 1: Inflation Over Time**
 
-![Inflation Over Time](IS477_project/image1_inflation_over_time.png)
+![Inflation Over Time](IS477_project/results/figures/inflation_over_time.png)
 
 The inflation time series reveals distinct phases in the study period. From 2015 through early 2020, inflation remained relatively stable, oscillating between 0.2% and 3.0% year-over-year, consistent with the Federal Reserve's target range. A dramatic decline occurred in mid-2020 during the initial COVID-19 lockdowns, with inflation briefly dropping near 0.3%. This was followed by an unprecedented surge beginning in early 2021, with inflation peaking at 9.0% in mid-2022—the highest level in recent years. Since then, inflation has gradually declined but remains elevated at around 2.5-3.5% through 2024.
 
 **Figure 2: Trends in PCE (2015-2024)**
 
-![PCE Trends](IS477_project/image2_pce_trends.png)
+![PCE Trends](IS477_project/results/figures/pce_trends.png)
 
 The Personal Consumption Expenditures chart illustrates the divergence between nominal and real spending over time. Nominal PCE (blue line) shows consistent upward growth from approximately $12 trillion in 2015 to over $20 trillion in 2024, with a sharp drop in Mid 2020 due to pandemic lockdowns followed by rapid recovery. Real PCE (orange line), adjusted for inflation, grew more modestly from about $12 trillion to $15 trillion over the same period. The gap between the two lines widened substantially after 2021, reflecting the inflation surge. Notably, real PCE experienced its sharpest decline in Mid 2020 but rebounded quickly, and has grown relatively steadily since 2021 despite high inflation.
 
 **Figure 3: Year-over-Year Growth Rates (2015-2024)**
 
-![Growth Rates](IS477_project/image3_growth_rates.png)
+![Growth Rates](IS477_project/results/figures/growth_rates.png)
 
 This comparative visualization reveals the dramatic volatility of 2020-2021. All three growth rates showed relative stability from 2016-2019, with inflation (blue) around 1-3%, nominal PCE growth (orange) around 4-5%, and real PCE growth (green) around 2-3%. The pandemic caused an extraordinary collapse in Mid 2020, with real PCE growth plummeting to -14.5%. The recovery in 2021 was equally dramatic, with both nominal and real PCE growth spiking to approximately 25-30% year-over-year—the highest growth rates in the dataset. Since 2022, growth rates have normalized but remain more volatile than the pre-pandemic period, with nominal PCE growth elevated around 6-8% and real PCE growth around 2-4%.
 
 **Figure 4: Correlation Matrix**
 
-![Correlation Matrix](IS477_project/image4_correlation_matrix.png)
+![Correlation Matrix](IS477_project/results/figures/correlation_matrix.png)
 
 The correlation analysis reveals important relationships between variables. CPI inflation shows a strong positive correlation (r = 0.67) with nominal PCE growth, indicating that periods of high inflation tend to coincide with high nominal spending growth. However, the correlation between CPI inflation and real PCE growth is much weaker (r = 0.29), suggesting that inflation-adjusted spending is less strongly associated with inflation rates. The very high correlation (r = 0.90) between nominal and real PCE growth rates indicates that much of the variation in spending growth is shared between nominal and real measures, though they diverge during high-inflation periods. This correlation pattern provides initial evidence that the inflation-spending relationship is more complex than simple economic theory would predict.
 
@@ -235,6 +235,8 @@ The structure of our workflow is, such that, one can re-do the analysis based on
 
 To ensure that the run was successful, you can ensure that you have files like macromonthly.csv, qualityreport.json, and the regression summaries in results/ have been generated. In case of a failure, refer to the relevant log file and make sure that you have the API key and Python environment properly set. To preview the steps that would be run, you can also run snakemake -n or to run a specific output you can specific the path of the output file and pass it to Snakemake. 
 
+### Box link where results of the analysis are stored, including output files, visualizations
+**Box Link**: (https://uofi.box.com/s/m70hmdbgk16zm57cu3n3aq0b77awsq00)
 
 ## References
 U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: All Items in U.S. City Average [CPIAUCSL], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCSL, December 5, 2025.
