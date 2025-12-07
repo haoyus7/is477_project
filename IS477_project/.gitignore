@@ -1,0 +1,24 @@
+# Data files stored in Box
+data/raw/CPIAUCSL.csv
+data/raw/CPIAUCSL_metadata.json
+data/raw/PCE.csv
+data/raw/PCE_metadata.json
+
+# Processed data files
+data/processed/macro_monthly.csv
+data/processed/macro_monthly_metadata.json
+data/processed/quality_report.json
+
+# Result figures
+results/figures/correlation_matrix.png
+results/figures/growth_rates.png
+results/figures/inflation_over_time.png
+results/figures/pce_trends.png
+
+# Other result files
+results/baseline_model_summary.txt
+results/lagged_model_summary.txt
+results/correlation_matrix.csv
+results/descriptive_stats.csv
+results/model_results.json
+results/eda_summary.json
