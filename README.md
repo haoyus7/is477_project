@@ -238,6 +238,33 @@ To ensure that the run was successful, you can ensure that you have files like m
 ### Box link where results of the analysis are stored, including output files, visualizations
 **Box Link**: (https://uofi.box.com/s/m70hmdbgk16zm57cu3n3aq0b77awsq00)
 
+Place downloaded files maintaining this structure:
+#### Raw data files
+- IS477_project/data/raw/CPIAUCSL.csv
+- IS477_project/data/raw/CPIAUCSL_metadata.json
+- IS477_project/data/raw/PCE.csv
+- IS477_project/data/raw/PCE_metadata.json
+
+#### Processed data files
+- IS477_project/data/processed/macro_monthly.csv
+- IS477_project/data/processed/macro_monthly_metadata.json
+- IS477_project/data/processed/quality_report.json
+
+#### Result figures
+- IS477_project/results/figures/correlation_matrix.png
+- IS477_project/results/figures/growth_rates.png
+- IS477_project/results/figures/inflation_over_time.png
+- IS477_project/results/figures/pce_trends.png
+
+#### Other result files
+- IS477_project/results/baseline_model_summary.txt
+- IS477_project/results/lagged_model_summary.txt
+- IS477_project/results/correlation_matrix.csv
+- IS477_project/results/descriptive_stats.csv
+- IS477_project/results/model_results.json
+- IS477_project/results/eda_summary.json
+
+
 ## References
 U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: All Items in U.S. City Average [CPIAUCSL], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCSL, December 5, 2025.
 
